@@ -48,7 +48,8 @@ contract ErrorHandlerContract {
         
         return _numerator / _denominator;
     }
-}```
+}
+```
 
 To compile the code, go to the "Solidity Compiler" tab in the left-hand sidebar. Set the "Compiler" version to 0.8.18, then click on the "Compile myToken.sol" button.
 Once the code is compiled, navigate to the "Deploy & Run Transactions" tab. Select the myToken contract from the dropdown menu, and click on the "Deploy" button.
