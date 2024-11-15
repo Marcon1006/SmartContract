@@ -16,8 +16,8 @@ To run this program, you can use Remix, an online IDE for Solidity development. 
 Visit the Remix IDE website at Remix Ethereum.
 Create a new file by clicking on the "+" icon in the left-hand sidebar, and save the file with a .sol extension (e.g., smart-Contract.sol).
 Copy and paste the following code into your new file:
-
-```// SPDX-License-Identifier: MIT
+```javascript
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
 contract ErrorHandlerContract {
