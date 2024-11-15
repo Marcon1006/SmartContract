@@ -16,32 +16,40 @@ To run this program, you can use Remix, an online IDE for Solidity development. 
 Visit the Remix IDE website at Remix Ethereum.
 Create a new file by clicking on the "+" icon in the left-hand sidebar, and save the file with a .sol extension (e.g., smart-Contract.sol).
 Copy and paste the following code into your new file:
-```javascript
-// SPDX-License-Identifier: MIT
+
+```// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
-contract smartContract {
+contract ErrorHandlerContract {
     uint public value;
 
+    /**
+     * @dev Sets a new value. Requires that the value is greater than zero and is different from the current value.
+     * @param _value The new value to be set.
+     */
     function setValue(uint _value) public {
-        assert(_value != value);  // Assert that the new value is different from the current one.
-        
-        require(_value > 0, "Value must be greater than 0.");  // Ensure the value is greater than zero.
-        
+        require(_value > 0, "Value must be greater than 0.");
+        require(_value != value, "New value must be different from the current value.");
         value = _value;
     }
 
+    /**
+     * @dev Performs division, requiring that the denominator is non-zero and the numerator is divisible by the denominator.
+     * @param _numerator The numerator of the division.
+     * @param _denominator The denominator of the division.
+     * @return The result of the division.
+     */
     function performDivision(uint _numerator, uint _denominator) public pure returns (uint) {
-        require(_denominator != 0, "Cannot divide by zero.");  // Prevent division by zero.
-
+        require(_denominator != 0, "Cannot divide by zero.");
+        
         if (_numerator % _denominator != 0) {
-            revert("Numerator must be divisible by denominator.");  // Ensure divisibility.
+            revert("Numerator must be divisible by denominator.");
         }
-
+        
         return _numerator / _denominator;
     }
-}
-```
+}```
+
 To compile the code, go to the "Solidity Compiler" tab in the left-hand sidebar. Set the "Compiler" version to 0.8.18, then click on the "Compile myToken.sol" button.
 Once the code is compiled, navigate to the "Deploy & Run Transactions" tab. Select the myToken contract from the dropdown menu, and click on the "Deploy" button.
 After deployment, you can mint and burn tokens by interacting with the mint and burn functions:
